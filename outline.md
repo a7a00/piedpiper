@@ -7,7 +7,7 @@ Compression information is stored as an array in the file header. Each element o
 
 The file would be compressed by creating a file called "new", looking up each tuple of the compression array, sectioning off that number of bytes into its own file, applying the necessary compression code to that file, and appending it to the "new" file. Again, we're talking stupidly simple, crappy compression.
 
-Of course, the length of the compressed segment won't be the same as the original length. This means that the length of the segment in the tuple would be edited before the new file is appended to the new file and deleted for good.
+Of course, the length of the compressed segment won't be the same as the original length. This means that the length of the segment in the tuple would be edited to the new length of this temp file before the temp file is appended to the "new" file and deleted for good.
 
 The finished file is then included with the compression array as a header.
     
